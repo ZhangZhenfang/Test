@@ -8,4 +8,4 @@ RUN bash -c "touch /app.jar"
 
 EXPOSE 8081
 
-ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=test", "--server.port=8081", "> /log/app.log"]
+ENTRYPOINT ["java", "-jar", "app.jar", "-XX:+HeapDumpOnOutOfMemoryError", "-Xms:512m", "-Xmx:512m", "--spring.profiles.active=test", "--server.port=8081", "> /log/app.log"]
